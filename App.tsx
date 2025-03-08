@@ -3,9 +3,9 @@ import './gesture-handler';
 import React, {useEffect, useState} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 // SHARED IMPORTS
-import RootStackNavigator from '@/navigation/RootStackNavigator';
-import SplashScreen from '@/screens/SplashScreen';
-import {sleep} from '@/utils/sleep';
+import RootStackNavigator from './src/navigation/RootStackNavigator';
+import SplashScreen from './src/screens/SplashScreen';
+import {sleep} from './src/utils/sleep';
 
 function App(): React.JSX.Element {
   // LOCAL STATES

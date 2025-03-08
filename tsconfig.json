@@ -5,10 +5,6 @@
     "paths": {
       "@env": ["node_modules/react-native-dotenv"],
       "@/*": ["src/*"],
-      // "@/components/*": ["src/components/*"],
-      // "@/constants/*": ["src/constants/*"],
-      // "@/screens/*": ["src/screens/*"],
-      // "@/utils/*": ["src/utils/*"],
     }
   }
 }
