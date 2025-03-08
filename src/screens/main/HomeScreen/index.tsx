@@ -1,53 +1,16 @@
 import React from 'react';
-import {ScrollView, StatusBar, Text, useColorScheme, View} from 'react-native';
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-import {API_BASE_URL} from '@env';
 // SHARED IMPORTS
-import Highlight from '@/components/atoms/Highlight';
-// LOCAL IMPORTS
-import {HomeStackScreenProps} from '@/navigators/HomeStackNavigator/types';
-import {Section} from '@/components/organisms/home';
-import {homeStyles as s} from './styles';
+import type {BottomTabsScreenProps} from '@/navigators/BottomTabsNavigator/types';
+import Temp from '@/components/Temp';
 
 function HomeScreen({
   navigation,
-}: HomeStackScreenProps<'Home'>): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
+}: BottomTabsScreenProps<'Home'>): React.JSX.Element {
   // RENDER
   return (
-    <View style={s.dynamic({isDarkMode}).container}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={isDarkMode ? Colors.darker : Colors.lighter}
-      />
-      <ScrollView style={s.dynamic({isDarkMode}).content}>
-        <View style={s.static.header}>
-          <Header />
-        </View>
-        <View style={s.dynamic({isDarkMode}).main}>
-          <Section title="Step One">
-            Edit <Highlight>{API_BASE_URL}</Highlight> to change this screen and
-            then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </View>
+    <Temp next={() => navigation.navigate('Details', {id: Date.now()})}>
+      HomeScreen
+    </Temp>
   );
 }
 

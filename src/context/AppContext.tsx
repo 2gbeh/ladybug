@@ -9,7 +9,7 @@ import {
   useCallback,
   useEffect,
 } from 'react';
-import {sleep} from '@/utils/sleep';
+import {sleep} from '../utils/sleep';
 
 interface IAppContext {
   isLoading: boolean;
