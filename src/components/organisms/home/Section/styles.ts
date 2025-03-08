@@ -1,6 +1,10 @@
 import {StyleSheet} from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 
+type ParamsType = {
+  isDarkMode?: boolean;
+};
+
 export const sectionStyles = {
   static: StyleSheet.create({
     container: {
@@ -8,17 +12,14 @@ export const sectionStyles = {
       paddingHorizontal: 24,
     },
   }),
-  title: (isDarkMode?: boolean) =>
+  dynamic: ({isDarkMode}: ParamsType) =>
     StyleSheet.create({
-      transform: {
+      title: {
         color: isDarkMode ? Colors.white : Colors.black,
         fontSize: 24,
         fontWeight: '600',
       },
-    }),
-  description: (isDarkMode?: boolean) =>
-    StyleSheet.create({
-      transform: {
+      description: {
         color: isDarkMode ? Colors.light : Colors.dark,
         marginTop: 8,
         fontSize: 18,

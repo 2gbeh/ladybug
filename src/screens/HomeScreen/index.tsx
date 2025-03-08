@@ -17,16 +17,16 @@ function HomeScreen(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
   // RENDER
   return (
-    <View style={s.container(isDarkMode).transform}>
+    <View style={s.dynamic({isDarkMode}).container}>
       <StatusBar
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={isDarkMode ? Colors.darker : Colors.lighter}
       />
-      <ScrollView style={s.content(isDarkMode).transform}>
+      <ScrollView style={s.dynamic({isDarkMode}).content}>
         <View style={s.static.header}>
           <Header />
         </View>
-        <View style={s.main(isDarkMode).transform}>
+        <View style={s.dynamic({isDarkMode}).main}>
           <Section title="Step One">
             Edit <Highlight>{API_BASE_URL}</Highlight> to change this screen and
             then come back to see your edits.

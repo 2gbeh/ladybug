@@ -11,8 +11,8 @@ const Section: React.FC<PropsType> = ({children, title}) => {
   const isDarkMode = useColorScheme() === 'dark';
   return (
     <View style={s.static.container}>
-      <Text style={s.title(isDarkMode).transform}>{title}</Text>
-      <Text style={s.description(isDarkMode).transform}>{children}</Text>
+      <Text style={s.dynamic({isDarkMode}).title}>{title}</Text>
+      <Text style={s.dynamic({isDarkMode}).description}>{children}</Text>
     </View>
   );
 };

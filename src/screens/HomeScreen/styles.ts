@@ -12,27 +12,25 @@ import {Colors} from 'react-native/Libraries/NewAppScreen';
  */
 const SAFE_PADDING = '5%';
 
+type ParamsType = {
+  isDarkMode?: boolean;
+};
+
 export const homeStyles = {
   static: StyleSheet.create({
     header: {
       paddingRight: SAFE_PADDING,
     },
   }),
-  container: (isDarkMode?: boolean) =>
+  dynamic: ({isDarkMode}: ParamsType) =>
     StyleSheet.create({
-      transform: {
+      container: {
         backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
       },
-    }),
-  content: (isDarkMode?: boolean) =>
-    StyleSheet.create({
-      transform: {
+      content: {
         backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
       },
-    }),
-  main: (isDarkMode?: boolean) =>
-    StyleSheet.create({
-      transform: {
+      main: {
         backgroundColor: isDarkMode ? Colors.black : Colors.white,
         paddingHorizontal: SAFE_PADDING,
         paddingBottom: SAFE_PADDING,
