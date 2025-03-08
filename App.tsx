@@ -1,38 +1,28 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
+import './gesture-handler';
 
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
+import {NavigationContainer} from '@react-navigation/native';
+// SHARED IMPORTS
+import RootStackNavigator from '@/navigation/RootStackNavigator';
 import SplashScreen from '@/screens/SplashScreen';
-import LoginScreen from '@/screens/LoginScreen';
-import HomeScreen from '@/screens/HomeScreen';
+import {sleep} from '@/utils/sleep';
 
 function App(): React.JSX.Element {
-  const [isLoading, setIsLoading] = useState(false);
+  // LOCAL STATES
+  const [isLoading, setIsLoading] = useState(true);
+  // SIDE EFFECT
+  useEffect(() => {
+    (async () => {
+      await sleep();
+      setIsLoading(false);
+    })();
+  }, []);
   // RENDER
   return isLoading ? (
     <SplashScreen />
   ) : (
     <NavigationContainer>
-      <Stack.Navigator>
-        {userToken == null ? (
-          // No token found, user isn't signed in
-          <Stack.Screen
-            name="SignIn"
-            component={SimpleSignInScreen}
-            options={{
-              title: 'Sign in',
-            }}
-            initialParams={{setUserToken}}
-          />
-        ) : (
-          // User is signed in
-          <Stack.Screen name="Home" component={HomeScreen} />
-        )}
-      </Stack.Navigator>
+      <RootStackNavigator />
     </NavigationContainer>
   );
 }

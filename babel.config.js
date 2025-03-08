@@ -17,8 +17,9 @@ module.exports = {
       {
         root: ['./src'],
         alias: {
+          '@/': './src/',
           // '@/assets': './src/assets',
-          '@/components': './src/components',
+          // '@/components': './src/components',
           // '@/constants': './src/constants',
           // '@/context': './src/context',
           // '@/data': './src/data',
@@ -26,7 +27,7 @@ module.exports = {
           // '@/hooks': './src/hooks',
           // '@/lib': './src/lib',
           // '@/navigation': './src/navigation',
-          '@/screens': './src/screens',
+          // '@/screens': './src/screens',
           // '@/store': './src/store',
           // '@/styles': './src/styles',
           // '@/types': './src/types',
@@ -34,6 +35,6 @@ module.exports = {
         },
       },
     ],
-    // 'react-native-reanimated/plugin',
+    'react-native-reanimated/plugin',
   ],
 };

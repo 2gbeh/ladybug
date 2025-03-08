@@ -8,12 +8,16 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 import {API_BASE_URL} from '@env';
-//
+// SHARED IMPORTS
 import Highlight from '@/components/atoms/Highlight';
+// LOCAL IMPORTS
+import {HomeStackScreenProps} from '@/navigation/HomeStackNavigator/types';
 import {Section} from '@/components/organisms/home';
 import {homeStyles as s} from './styles';
 
-function HomeScreen(): React.JSX.Element {
+function HomeScreen({
+  navigation,
+}: HomeStackScreenProps<'Home'>): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
   // RENDER
   return (
