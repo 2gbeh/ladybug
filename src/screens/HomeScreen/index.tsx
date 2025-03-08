@@ -7,6 +7,7 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import {API_BASE_URL} from '@env';
 //
 import Highlight from '@/components/atoms/Highlight';
 import {Section} from '@/components/organisms/home';
@@ -27,8 +28,8 @@ function HomeScreen(): React.JSX.Element {
         </View>
         <View style={s.main(isDarkMode).transform}>
           <Section title="Step One">
-            Edit <Highlight>App.tsx</Highlight> to change this screen and then
-            come back to see your edits.
+            Edit <Highlight>{API_BASE_URL}</Highlight> to change this screen and
+            then come back to see your edits.
           </Section>
           <Section title="See Your Changes">
             <ReloadInstructions />
