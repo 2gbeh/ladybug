@@ -4,7 +4,8 @@
     "baseUrl": ".", // Set the base directory (root of your project)
     "paths": {
       "@env": ["node_modules/react-native-dotenv"],
-      "@/*": ["src/*"],
+      "@/*": ["src/*"]
     }
-  }
+  },
+  "exclude": ["node_modules"]
 }

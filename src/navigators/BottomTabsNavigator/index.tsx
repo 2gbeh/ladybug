@@ -1,20 +1,20 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 // SHARED IMPORTS
-import HomeStackNavigator from '../HomeStackNavigator';
+import HomeScreen from '@/screens/main/HomeScreen';
 import ProfileScreen from '@/screens/main/ProfileScreen';
 // LOCAL IMPORTS
-import {MainTabsParamList} from './types';
+import {BottomTabsParamList} from './types';
 
-const Tab = createBottomTabNavigator<MainTabsParamList>();
+const Tab = createBottomTabNavigator<BottomTabsParamList>();
 
-function MainTabsNavigator() {
+function BottomTabNavigator() {
   // RENDER
   return (
     <Tab.Navigator>
-      <Tab.Screen name="HomeStack" component={HomeStackNavigator} />
+      <Tab.Screen name="Home" component={HomeScreen} />
       <Tab.Screen name="Profile" component={ProfileScreen} />
     </Tab.Navigator>
   );
 }
 
-export default MainTabsNavigator;
+export default BottomTabNavigator;
