@@ -8,7 +8,7 @@ export function listItemStyles(props?: PropsType) {
   return StyleSheet.create({
     _: {},
     container: {
-      backgroundColor: theme.colors.surface,
+      // backgroundColor: theme.colors.surface,
       paddingVertical: 8,
       flexDirection: 'row',
       alignItems: 'center',

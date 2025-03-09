@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Avatar, Text, TextInput, useTheme} from 'react-native-paper';
+import {Avatar, Button, Text, TextInput, useTheme} from 'react-native-paper';
 // SHARED IMPORTS
 import type {RootStackScreenProps} from '@/navigators/RootStackNavigator/types';
 import Temp from '@/components/Temp';
@@ -18,6 +18,7 @@ import {
 import {ThemeProp} from 'react-native-paper/lib/typescript/types';
 import {Typography} from '@/components/atoms/Typography';
 import ListItem from '@/components/molecules/ListItem';
+import TextField from '@/components/atoms/form-controls/ui/TextField';
 
 function LoginScreen({
   navigation,
@@ -35,8 +36,9 @@ function LoginScreen({
           <Typography.Headline>Log in</Typography.Headline>
           <Typography.Body>Welcome back</Typography.Body>
         </View>
-        <TextInput label="Username" right={<TextInput.Icon icon="email" />} />
-        <TextInput label="Email" right={<TextInput.Icon icon="email" />} />
+        <TextField label='Email or username' rightIcon='email' flat/>
+        <TextField label='Password' rightIcon='eye' flat/>
+        
         <TextInput
           label="Password"
           secureTextEntry={!showPassword}
@@ -58,6 +60,14 @@ function LoginScreen({
             />
           }
         />
+        <Button
+        compact
+          icon="camera"
+          mode="contained"
+          // loading={true}
+          onPress={() => console.log('Pressed')}>
+          Log in
+        </Button>
       </KeyboardAvoidingView>
     </ScrollView>
   );

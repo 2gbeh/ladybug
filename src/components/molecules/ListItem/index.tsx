@@ -1,6 +1,6 @@
 import React from 'react';
 import {View} from 'react-native';
-import {Avatar} from 'react-native-paper';
+import {Avatar, Surface} from 'react-native-paper';
 import type {AvatarImageSource} from 'react-native-paper/lib/typescript/components/Avatar/AvatarImage';
 // SHARED IMPORT
 import {Typography} from '@/components/atoms/Typography';
@@ -22,7 +22,7 @@ const ListItem: React.FC<PropsType> = ({
   supportingText,
   trailingText,
 }) => (
-  <View style={sx().container}>
+  <Surface elevation={0} style={sx().container}>
     <View style={sx().figure}>
       <Avatar.Image source={avatar ?? mockAvatar} size={40} />
       <View style={sx().figcaption}>
@@ -37,7 +37,7 @@ const ListItem: React.FC<PropsType> = ({
     <Typography.Body sm style={sx({muted: true}).text}>
       {trailingText}
     </Typography.Body>
-  </View>
+  </Surface>
 );
 
 export default React.memo(ListItem);
