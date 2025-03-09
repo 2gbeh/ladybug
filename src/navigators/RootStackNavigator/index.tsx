@@ -29,7 +29,13 @@ function RootStackNavigator() {
         </>
       ) : (
         <>
-          <Stack.Screen name="Login" component={LoginScreen} />
+          <Stack.Screen
+            name="Login"
+            component={LoginScreen}
+            options={{
+              contentStyle: {},
+            }}
+          />
           <Stack.Screen name="Register" component={RegisterScreen} />
         </>
       )}
