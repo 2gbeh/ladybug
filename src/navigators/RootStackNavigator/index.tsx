@@ -1,6 +1,7 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 // SHARED IMPORTS
 import BottomTabNavigator from '../BottomTabsNavigator';
+import AppScreen from '@/screens/wip/AppScreen';
 import SplashScreen from '@/screens/SplashScreen';
 import LoginScreen from '@/screens/auth/LoginScreen';
 import RegisterScreen from '@/screens/auth/RegisterScreen';

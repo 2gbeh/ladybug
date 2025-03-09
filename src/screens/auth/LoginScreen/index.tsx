@@ -33,16 +33,23 @@ function LoginScreen({
         style={sx().content}>
         <View>
           <Typography.Headline>Log in</Typography.Headline>
-          <ListItem
-            avatar={require('@/assets/images/my-avatar.png')}
-            headline="PlateauMed"
-            // supportingText="February salary"
-            trailingText="Feb 28"
-          />
+          <Typography.Body>Welcome back</Typography.Body>
         </View>
         <TextInput label="Username" right={<TextInput.Icon icon="email" />} />
+        <TextInput label="Email" right={<TextInput.Icon icon="email" />} />
         <TextInput
           label="Password"
+          secureTextEntry={!showPassword}
+          right={
+            <TextInput.Icon
+              icon={showPassword ? 'eye-off' : 'eye'}
+              onPress={() => setShowPassword(prev => !prev)}
+            />
+          }
+        />
+        <TextInput
+          mode="outlined"
+          label="Confirm password"
           secureTextEntry={!showPassword}
           right={
             <TextInput.Icon
