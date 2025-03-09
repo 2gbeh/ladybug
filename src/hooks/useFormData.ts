@@ -1,7 +1,9 @@
 import {useState} from 'react';
-//
-import {sleep} from '@/utils/sleep';
+// SHARED IMPORTS
 import {PROTOTYPING} from '@/constants/PROTOTYPING';
+import {sleep} from '@/utils/sleep';
+
+const P = PROTOTYPING.auth;
 
 type FormDataType = {
   emailOrUsername: string;
@@ -18,23 +20,25 @@ const mockFormData = {
   password: 'password',
 };
 
-const P = PROTOTYPING.auth;
-
-export function useLoginScreen() {
+export function useFormData() {
   const [formData, setFormData] = useState<FormDataType>(
     P.formData ? mockFormData : initialFormData,
   );
-  const [submitting, setSubmitting] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   // ACTIONS
   const resetFormData = () => setFormData(initialFormData);
-  const mutateFormData = (name:) => {
-  
-  };
+
+  const mutateFormData = (name: keyof FormDataType, value: string) =>
+    setFormData(prev => ({...prev, [name]: value}));
+
   const handleSubmit = async () => {
-    setSubmitting(true);
-    await sleep();
-    setSubmitting(false);
+    setIsSubmitting(true);
+    if (P.action) {
+      await sleep();
+    }
+    resetFormData();
+    setIsSubmitting(false);
   };
 
-  return {formData, handleSubmit, submitting};
+  return {formData, mutateFormData, handleSubmit, isSubmitting};
 }

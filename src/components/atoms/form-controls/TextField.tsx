@@ -1,11 +1,12 @@
 import React from 'react';
 import {TextInput} from 'react-native-paper';
+import type {IconSource} from 'react-native-paper/lib/typescript/components/Icon';
 // LOCAL IMPORTS
 import {
   FormControlKeyboardType,
   FormControlPropsType,
   FormControlUtil as _,
-} from '../utils';
+} from './common/utils';
 
 export type PropsType = FormControlPropsType & {
   type?: FormControlKeyboardType;
@@ -13,8 +14,8 @@ export type PropsType = FormControlPropsType & {
   // custom
   leftText?: string;
   rightText?: string;
-  leftIcon?: string;
-  rightIcon?: string;
+  leftIcon?: IconSource;
+  rightIcon?: IconSource;
 };
 
 const TextField: React.FC<PropsType> = ({

@@ -1,5 +1,7 @@
 import {StyleSheet} from 'react-native';
 import {useTheme} from 'react-native-paper';
+// 
+import {containerStyles} from '@/styles/containerStyles';
 
 type PropsType = {muted?: boolean};
 
@@ -10,13 +12,10 @@ export function listItemStyles(props?: PropsType) {
     container: {
       // backgroundColor: theme.colors.surface,
       paddingVertical: 8,
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'space-between',
+      ...containerStyles.rowCenterBetween,
     },
     figure: {
-      flexDirection: 'row',
-      alignItems: 'center',
+      ...containerStyles.rowCenter,
       columnGap: 16,
     },
     figcaption: {},

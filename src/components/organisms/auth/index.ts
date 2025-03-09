@@ -1,1 +1,1 @@
-export {default as Heading} from './ui/Heading';
+export {default as Heading} from './Heading';

@@ -1,50 +1,38 @@
 import React, {useState} from 'react';
-import {Avatar, Button, Text, TextInput, useTheme} from 'react-native-paper';
-// SHARED IMPORTS
-import type {RootStackScreenProps} from '@/navigators/RootStackNavigator/types';
-import Temp from '@/components/Temp';
-import {
-  KeyboardAvoidingView,
-  Platform,
-  ScrollView,
-  StyleSheet,
-  View,
-} from 'react-native';
-import {containerStyles} from '@/styles/containerStyles';
+import {ScrollView, StyleSheet} from 'react-native';
 import {
   SafeAreaProvider,
   useSafeAreaInsets,
 } from 'react-native-safe-area-context';
-import {ThemeProp} from 'react-native-paper/lib/typescript/types';
-import {Typography} from '@/components/atoms/Typography';
-import ListItem from '@/components/molecules/ListItem';
+import {useTheme} from 'react-native-paper';
+import type {ThemeProp} from 'react-native-paper/lib/typescript/types';
+// SHARED IMPORTS
+import {RootStackScreenProps} from '@/navigators/RootStackNavigator/types';
 import {TextField, PasswordField} from '@/components/atoms/form-controls';
+import CustomKeyboardAvoidingView from '@/components/atoms/CustomKeyboardAvoidingView';
+import {useFormData} from '@/hooks/useFormData';
+// LOCAL IMPORTS
 import {Heading} from '@/components/organisms/auth';
+import {ThemedButton} from '@/components/atoms/ThemedButton';
 
 function LoginScreen({
   navigation,
-}: RootStackScreenProps<'Login'>): React.JSX.Element {
+}: RootStackScreenProps<'Register'>): React.JSX.Element {
   const theme = useTheme();
   const sx = themedStyles(theme);
-  const [showPassword, setShowPassword] = useState(false);
+  const {handleSubmit, isSubmitting} = useFormData();
   // RENDER
   return (
     <ScrollView contentContainerStyle={sx().container}>
-      <KeyboardAvoidingView
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-        style={{rowGap: 16}}>
+      <CustomKeyboardAvoidingView>
         <Heading headline="Log in" body="Welcome back" />
         <TextField label="Email or username" rightIcon="email" flat />
         <PasswordField label="Password" flat />
-        <Button
-          compact
-          icon="camera"
-          mode="contained"
-          // loading={true}
-          onPress={() => console.log('Pressed')}>
-          Log in
-        </Button>
-      </KeyboardAvoidingView>
+        <ThemedButton.Filled onClick={handleSubmit}>Log in</ThemedButton.Filled>
+        <ThemedButton.Tonal onClick={() => navigation.navigate('Register')}>
+          Register
+        </ThemedButton.Tonal>
+      </CustomKeyboardAvoidingView>
     </ScrollView>
   );
 }
@@ -61,9 +49,6 @@ export function themedStyles(theme: ThemeProp) {
         flex: 1,
         justifyContent: 'center',
         paddingHorizontal: 16,
-      },
-      content: {
-        rowGap: 16,
       },
     });
 }
