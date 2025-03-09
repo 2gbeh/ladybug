@@ -7,6 +7,7 @@ export type FormControlPropsType = {
   defaultValue?: string;
   onChange?: (value: string) => void;
   disabled?: boolean;
+  // custom
   hasError?: boolean;
   flat?: Boolean;
 };

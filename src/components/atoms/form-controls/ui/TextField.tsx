@@ -36,7 +36,7 @@ const TextField: React.FC<PropsType> = ({
 }) => {
   const computedAttribs = {
     inputMode: _.getInputMode(type),
-    keyboardType: _.getKeyboardType(type),
+    // keyboardType: _.getKeyboardType(type),
     left: leftText ? (
       <TextInput.Affix text={leftText} />
     ) : leftIcon ? (

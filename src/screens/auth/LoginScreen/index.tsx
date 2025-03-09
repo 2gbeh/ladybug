@@ -18,7 +18,8 @@ import {
 import {ThemeProp} from 'react-native-paper/lib/typescript/types';
 import {Typography} from '@/components/atoms/Typography';
 import ListItem from '@/components/molecules/ListItem';
-import TextField from '@/components/atoms/form-controls/ui/TextField';
+import {TextField, PasswordField} from '@/components/atoms/form-controls';
+import {Heading} from '@/components/organisms/auth';
 
 function LoginScreen({
   navigation,
@@ -31,37 +32,12 @@ function LoginScreen({
     <ScrollView contentContainerStyle={sx().container}>
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-        style={sx().content}>
-        <View>
-          <Typography.Headline>Log in</Typography.Headline>
-          <Typography.Body>Welcome back</Typography.Body>
-        </View>
-        <TextField label='Email or username' rightIcon='email' flat/>
-        <TextField label='Password' rightIcon='eye' flat/>
-        
-        <TextInput
-          label="Password"
-          secureTextEntry={!showPassword}
-          right={
-            <TextInput.Icon
-              icon={showPassword ? 'eye-off' : 'eye'}
-              onPress={() => setShowPassword(prev => !prev)}
-            />
-          }
-        />
-        <TextInput
-          mode="outlined"
-          label="Confirm password"
-          secureTextEntry={!showPassword}
-          right={
-            <TextInput.Icon
-              icon={showPassword ? 'eye-off' : 'eye'}
-              onPress={() => setShowPassword(prev => !prev)}
-            />
-          }
-        />
+        style={{rowGap: 16}}>
+        <Heading headline="Log in" body="Welcome back" />
+        <TextField label="Email or username" rightIcon="email" flat />
+        <PasswordField label="Password" flat />
         <Button
-        compact
+          compact
           icon="camera"
           mode="contained"
           // loading={true}
