@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {TextInput} from 'react-native-paper';
 // LOCAL IMPORTS
-import {FormControlPropsType} from './common/utils';
+import type { FormControlPropsType } from './common/types';
 
 const PasswordField: React.FC<FormControlPropsType> = ({
   label,

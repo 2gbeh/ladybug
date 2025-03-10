@@ -9,11 +9,11 @@ import type {ThemeProp} from 'react-native-paper/lib/typescript/types';
 // SHARED IMPORTS
 import {RootStackScreenProps} from '@/navigators/RootStackNavigator/types';
 import {TextField, PasswordField} from '@/components/atoms/form-controls';
+import {ThemedButton} from '@/components/atoms/ThemedButton';
 import CustomKeyboardAvoidingView from '@/components/atoms/CustomKeyboardAvoidingView';
 import {useFormData} from '@/hooks/useFormData';
 // LOCAL IMPORTS
 import {Heading} from '@/components/organisms/auth';
-import {ThemedButton} from '@/components/atoms/ThemedButton';
 
 function LoginScreen({
   navigation,
@@ -28,7 +28,9 @@ function LoginScreen({
         <Heading headline="Log in" body="Welcome back" />
         <TextField label="Email or username" rightIcon="email" flat />
         <PasswordField label="Password" flat />
-        <ThemedButton.Filled onClick={handleSubmit}>Log in</ThemedButton.Filled>
+        <ThemedButton.Filled onClick={handleSubmit} isLoading={isSubmitting}>
+          Log in
+        </ThemedButton.Filled>
         <ThemedButton.Tonal onClick={() => navigation.navigate('Register')}>
           Register
         </ThemedButton.Tonal>

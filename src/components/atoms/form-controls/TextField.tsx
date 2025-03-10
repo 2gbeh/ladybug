@@ -2,11 +2,8 @@ import React from 'react';
 import {TextInput} from 'react-native-paper';
 import type {IconSource} from 'react-native-paper/lib/typescript/components/Icon';
 // LOCAL IMPORTS
-import {
-  FormControlKeyboardType,
-  FormControlPropsType,
-  FormControlUtil as _,
-} from './common/utils';
+import type { FormControlKeyboardType, FormControlPropsType } from './common/types';
+import {FormControlUtil as _} from './common/utils';
 
 export type PropsType = FormControlPropsType & {
   type?: FormControlKeyboardType;

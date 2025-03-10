@@ -24,17 +24,4 @@ export function useLoginScreen() {
   const [formData, setFormData] = useState<FormDataType>(
     P.formData ? mockFormData : initialFormData,
   );
-  const [submitting, setSubmitting] = useState(false);
-  // ACTIONS
-  const resetFormData = () => setFormData(initialFormData);
-  const mutateFormData = (name:) => {
-  
-  };
-  const handleSubmit = async () => {
-    setSubmitting(true);
-    await sleep();
-    setSubmitting(false);
-  };
-
-  return {formData, handleSubmit, submitting};
 }
